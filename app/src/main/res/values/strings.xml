@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TeamDex</string>
+    <string name="bienvenida">Bienvenido</string>
+    <string name="continueB">Continuar</string>
+    <string name="version">estas usando la versión 1.0 de TeamDex</string>
+    <string name="desc">TeamDex es una red social en la que los usuarios pueden subir sus equipos pokemon ya sean competitivos y por diversión para que otros usuarios los vean o puedan usarlos en sus partidas</string>
+    <string name="contact">Contactanos</string>
+    <string name="label_usr">Por favor introduzca el nombre de usuario</string>
+    <string name="usr">Usuario</string>
+</resources>
