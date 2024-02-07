@@ -7,4 +7,6 @@
     <string name="contact">Contactanos</string>
     <string name="label_usr">Por favor introduzca el nombre de usuario</string>
     <string name="usr">Usuario</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
