@@ -13,6 +13,13 @@ class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(equipoModel: Equipo){
         binding.nombre.text = equipoModel.nombre
         binding.autor.text = equipoModel.autor
+
+        if(equipoModel.fav){
+            binding.fav.text= "Quitar Favorito"
+        }else{
+            binding.fav.text= "Favorito"
+        }
+
         Picasso.get()
             .load(equipoModel.listaPokemon[0].sprite)
             .into(binding.pk1)
@@ -31,5 +38,14 @@ class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         Picasso.get()
             .load(equipoModel.listaPokemon[5].sprite)
             .into(binding.pk6)
+        binding.fav.setOnClickListener {
+            if (equipoModel.fav){
+                binding.fav.text = "Favorito"
+                equipoModel.fav = false
+            }else{
+                binding.fav.text = "Quitar Favorito"
+                equipoModel.fav = true
+            }
+        }
     }
 }

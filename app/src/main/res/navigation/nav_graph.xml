@@ -29,5 +29,37 @@
         <action
             android:id="@+id/action_menuFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_favItemListFragment"
+            app:destination="@id/favItemListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/itemListFragment"
+        android:name="com.main.teamdex.ItemListFragment"
+        android:label="fragment_item_list"
+        tools:layout="@layout/fragment_item_list" >
+        <action
+            android:id="@+id/action_itemListFragment_to_detailItemFragment"
+            app:destination="@id/detailItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favItemListFragment"
+        android:name="com.main.teamdex.FavItemListFragment"
+        android:label="FavItemListFragment" />
+    <fragment
+        android:id="@+id/detailItemFragment"
+        android:name="com.main.teamdex.DetailItemFragment"
+        android:label="fragment_detail_item"
+        tools:layout="@layout/fragment_detail_item" />
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.main.teamdex.UserInfoFragment"
+        android:label="fragment_user_info"
+        tools:layout="@layout/fragment_user_info" />
 </navigation>

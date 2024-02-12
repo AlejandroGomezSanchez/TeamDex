@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.main.teamdex.adapter.EquipoAdapter
+import com.main.teamdex.databinding.FragmentFavItemListBinding
 import com.main.teamdex.databinding.FragmentItemListBinding
-import com.main.teamdex.databinding.FragmentMenuBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,14 +18,14 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ItemListFragment.newInstance] factory method to
+ * Use the [FavItemListFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ItemListFragment : Fragment() {
+class FavItemListFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var _binding : FragmentItemListBinding? = null
+    private var _binding : FragmentFavItemListBinding? = null
     private val binding
         get() = _binding!!
     lateinit var adapter : EquipoAdapter
@@ -43,12 +43,12 @@ class ItemListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentItemListBinding.inflate(inflater, container, false)
-        adapter = EquipoAdapter(EquipoProvider.listaEquipo)
-        binding.EquipoList.adapter = adapter
+        _binding = FragmentFavItemListBinding.inflate(inflater, container, false)
+        EquipoProvider.rellenaListaFav()
+        adapter = EquipoAdapter(EquipoProvider.listaFavEquipo)
+        binding.FavEquipoList.adapter = adapter
         layoutManager = LinearLayoutManager(requireContext())
-        binding.EquipoList.layoutManager = layoutManager
+        binding.FavEquipoList.layoutManager = layoutManager
         return binding.root
     }
 
@@ -59,12 +59,12 @@ class ItemListFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ItemListFragment.
+         * @return A new instance of fragment FavItemListFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ItemListFragment().apply {
+            FavItemListFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
