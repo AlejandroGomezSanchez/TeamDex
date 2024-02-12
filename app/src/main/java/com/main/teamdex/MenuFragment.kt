@@ -58,6 +58,11 @@ class MenuFragment : Fragment() {
             findNavController().navigate(R.id.action_menuFragment_to_userInfoFragment)
         }
 
+        binding.salir.setOnClickListener {
+            findNavController().navigate(R.id.action_menuFragment_to_loginFragment)
+            EquipoProvider.resetFav()
+        }
+
         return binding.root
     }
 

@@ -31,6 +31,10 @@ class EquipoProvider {
                 }
             }
         }
+
+        public fun resetFav(){
+            listaFavEquipo.clear()
+        }
     }
 }
 

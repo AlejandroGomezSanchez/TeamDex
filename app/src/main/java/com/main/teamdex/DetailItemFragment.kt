@@ -45,47 +45,54 @@ class DetailItemFragment : Fragment() {
         val equipo = arguments?.getParcelable<Equipo>("equipo")
 
         if (equipo != null) {
-            Picasso.get()
-                .load(equipo.listaPokemon[0].sprite)
-                .into(binding.poke1)
-            Picasso.get()
-                .load(equipo.listaPokemon[1].sprite)
-                .into(binding.poke2)
-            Picasso.get()
-                .load(equipo.listaPokemon[2].sprite)
-                .into(binding.poke3)
-            Picasso.get()
-                .load(equipo.listaPokemon[3].sprite)
-                .into(binding.poke4)
-            Picasso.get()
-                .load(equipo.listaPokemon[4].sprite)
-                .into(binding.poke5)
-            Picasso.get()
-                .load(equipo.listaPokemon[5].sprite)
-                .into(binding.poke6)
+            for (i in 0 until minOf(6, equipo.listaPokemon.size)) {
+                val pokemon = equipo.listaPokemon[i]
+
+                Picasso.get()
+                    .load(pokemon.sprite)
+                    .into(when (i) {
+                        0 -> binding.poke1
+                        1 -> binding.poke2
+                        2 -> binding.poke3
+                        3 -> binding.poke4
+                        4 -> binding.poke5
+                        5 -> binding.poke6
+                        else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
+                    })
+
+                when (i) {
+                    0 -> binding.nom1
+                    1 -> binding.nom2
+                    2 -> binding.nom3
+                    3 -> binding.nom4
+                    4 -> binding.nom5
+                    5 -> binding.nom6
+                    else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
+                }.text = pokemon.nombre.replaceFirst(pokemon.nombre[0],pokemon.nombre[0].uppercaseChar())
+
+                when (i) {
+                    0 -> binding.tipos1
+                    1 -> binding.tipos2
+                    2 -> binding.tipos3
+                    3 -> binding.tipos4
+                    4 -> binding.tipos5
+                    5 -> binding.tipos6
+                    else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
+                }.text = "Tipos: "+pokemon.tipo1 + pokemon.tipo2
+
+                when (i) {
+                    0 -> binding.hab1
+                    1 -> binding.hab2
+                    2 -> binding.hab3
+                    3 -> binding.hab4
+                    4 -> binding.hab5
+                    5 -> binding.hab6
+                    else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
+                }.text ="Habilidad: "+ pokemon.habilidad
+            }
 
             binding.nombreE.text = equipo.nombre
 
-            binding.nom1.text = equipo.listaPokemon[0].nombre
-            binding.nom2.text = equipo.listaPokemon[1].nombre
-            binding.nom3.text = equipo.listaPokemon[2].nombre
-            binding.nom4.text = equipo.listaPokemon[3].nombre
-            binding.nom5.text = equipo.listaPokemon[4].nombre
-            binding.nom6.text = equipo.listaPokemon[5].nombre
-
-            binding.tipos1.text = equipo.listaPokemon[0].tipo1 + equipo.listaPokemon[0].tipo2
-            binding.tipos2.text = equipo.listaPokemon[1].tipo1 + equipo.listaPokemon[1].tipo2
-            binding.tipos3.text = equipo.listaPokemon[2].tipo1 + equipo.listaPokemon[2].tipo2
-            binding.tipos4.text = equipo.listaPokemon[3].tipo1 + equipo.listaPokemon[3].tipo2
-            binding.tipos5.text = equipo.listaPokemon[4].tipo1 + equipo.listaPokemon[4].tipo2
-            binding.tipos6.text = equipo.listaPokemon[5].tipo1 + equipo.listaPokemon[5].tipo2
-
-            binding.hab1.text = equipo.listaPokemon[0].habilidad
-            binding.hab2.text = equipo.listaPokemon[1].habilidad
-            binding.hab3.text = equipo.listaPokemon[2].habilidad
-            binding.hab4.text = equipo.listaPokemon[3].habilidad
-            binding.hab5.text = equipo.listaPokemon[4].habilidad
-            binding.hab6.text = equipo.listaPokemon[5].habilidad
         }
 
 
