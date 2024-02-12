@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.main.teamdex.databinding.FragmentLoginBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +23,10 @@ class LoginFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var _binding : FragmentLoginBinding? = null
+    private val binding
+        get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,10 +40,20 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        binding.button.setOnClickListener{
+            usuario = binding.textInputEditText.text.toString()
+            findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
+        }
+        return binding.root
     }
 
+
+
     companion object {
+
+        var usuario = ""
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.

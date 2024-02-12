@@ -11,15 +11,23 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_creditFragment"
-            app:destination="@id/creditFragment" />
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/creditFragment"
         android:name="com.main.teamdex.CreditFragment"
-        android:label="CreditFragment" >
+        android:label="CreditFragment" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.main.teamdex.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
         <action
-            android:id="@+id/action_creditFragment_to_loginFragment"
+            android:id="@+id/action_menuFragment_to_creditFragment"
+            app:destination="@id/creditFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

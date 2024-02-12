@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nombre"
+            android:id="@+id/nombre"
+            android:textSize="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:layout_gravity=""/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:textSize="16dp"
+            android:text="autor"
+            android:id="@+id/autor"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/pk1"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:layout_marginStart="75dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/pk2"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:layout_marginStart="140dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/pk3"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:layout_marginStart="205dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/pk4"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:layout_marginStart="270dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/pk5"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:layout_marginStart="335dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/pk6"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="280dp"
+            android:text="Favorito"
+            android:id="@+id/fav"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

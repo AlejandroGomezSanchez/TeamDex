@@ -12,21 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnAnswer = findViewById<Button>(R.id.button)
-        btnAnswer.setOnClickListener {
-            goToCredit()
-        }
+
     }
 
-    fun goToCredit() {
-        //crear el intent
-        val intent = Intent(this@MainActivity, CreditActivity::class.java)
-        //tomar el valor del cuadro de texto.
-        val etNombre = this.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.textInputEditText)
-        //añadimos la información necesaria al intent
-        intent.putExtra("NAME", etNombre.text.toString())
 
-        //iniciar la nueva actividad
-        startActivity(intent)
-    }
 }
