@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.main.teamdex.adapter.EquipoAdapter
@@ -45,7 +46,7 @@ class FavItemListFragment : Fragment() {
     ): View? {
         _binding = FragmentFavItemListBinding.inflate(inflater, container, false)
         EquipoProvider.rellenaListaFav()
-        adapter = EquipoAdapter(EquipoProvider.listaFavEquipo)
+        adapter = EquipoAdapter(EquipoProvider.listaFavEquipo,findNavController())
         binding.FavEquipoList.adapter = adapter
         layoutManager = LinearLayoutManager(requireContext())
         binding.FavEquipoList.layoutManager = layoutManager

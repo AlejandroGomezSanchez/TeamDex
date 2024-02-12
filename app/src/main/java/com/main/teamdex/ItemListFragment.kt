@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.main.teamdex.adapter.EquipoAdapter
@@ -45,7 +46,7 @@ class ItemListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentItemListBinding.inflate(inflater, container, false)
-        adapter = EquipoAdapter(EquipoProvider.listaEquipo)
+        adapter = EquipoAdapter(EquipoProvider.listaEquipo,findNavController())
         binding.EquipoList.adapter = adapter
         layoutManager = LinearLayoutManager(requireContext())
         binding.EquipoList.layoutManager = layoutManager

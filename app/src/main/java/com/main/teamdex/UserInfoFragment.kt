@@ -39,6 +39,10 @@ class UserInfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentUserInfoBinding.inflate(inflater, container, false)
+
+        binding.user.text = "Usuario: "+ LoginFragment.usuario
+
+
         return binding.root
     }
 

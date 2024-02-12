@@ -51,7 +51,11 @@
     <fragment
         android:id="@+id/favItemListFragment"
         android:name="com.main.teamdex.FavItemListFragment"
-        android:label="FavItemListFragment" />
+        android:label="FavItemListFragment" >
+        <action
+            android:id="@+id/action_favItemListFragment_to_detailFavItemFragment"
+            app:destination="@id/detailFavItemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailItemFragment"
         android:name="com.main.teamdex.DetailItemFragment"
@@ -62,4 +66,9 @@
         android:name="com.main.teamdex.UserInfoFragment"
         android:label="fragment_user_info"
         tools:layout="@layout/fragment_user_info" />
+    <fragment
+        android:id="@+id/detailFavItemFragment"
+        android:name="com.main.teamdex.DetailFavItemFragment"
+        android:label="fragment_detail_fav_item"
+        tools:layout="@layout/fragment_detail_fav_item" />
 </navigation>

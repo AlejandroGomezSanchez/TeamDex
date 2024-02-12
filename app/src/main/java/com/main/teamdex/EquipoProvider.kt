@@ -13,10 +13,12 @@ class EquipoProvider {
         public fun rellenaLista(){
             listaEquipo.forEach{
                 for(i in 0..5) {
-                    Conector.getPokemon({ pokemon: Pokemon ->
-                        println(pokemon.nombre)
-                        it.listaPokemon.add(pokemon)
-                    }, it.listaId[i])
+                    it.listaId?.let { it1 ->
+                        Conector.getPokemon({ pokemon: Pokemon ->
+                            println(pokemon.nombre)
+                            it.listaPokemon.add(pokemon)
+                        }, it1.get(i))
+                    }
                 }
             }
         }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.main.teamdex.databinding.FragmentCreditBinding
 import com.main.teamdex.databinding.FragmentDetailItemBinding
+import com.squareup.picasso.Picasso
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,6 +41,54 @@ class DetailItemFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentDetailItemBinding.inflate(inflater, container, false)
+
+        val equipo = arguments?.getParcelable<Equipo>("equipo")
+
+        if (equipo != null) {
+            Picasso.get()
+                .load(equipo.listaPokemon[0].sprite)
+                .into(binding.poke1)
+            Picasso.get()
+                .load(equipo.listaPokemon[1].sprite)
+                .into(binding.poke2)
+            Picasso.get()
+                .load(equipo.listaPokemon[2].sprite)
+                .into(binding.poke3)
+            Picasso.get()
+                .load(equipo.listaPokemon[3].sprite)
+                .into(binding.poke4)
+            Picasso.get()
+                .load(equipo.listaPokemon[4].sprite)
+                .into(binding.poke5)
+            Picasso.get()
+                .load(equipo.listaPokemon[5].sprite)
+                .into(binding.poke6)
+
+            binding.nombreE.text = equipo.nombre
+
+            binding.nom1.text = equipo.listaPokemon[0].nombre
+            binding.nom2.text = equipo.listaPokemon[1].nombre
+            binding.nom3.text = equipo.listaPokemon[2].nombre
+            binding.nom4.text = equipo.listaPokemon[3].nombre
+            binding.nom5.text = equipo.listaPokemon[4].nombre
+            binding.nom6.text = equipo.listaPokemon[5].nombre
+
+            binding.tipos1.text = equipo.listaPokemon[0].tipo1 + equipo.listaPokemon[0].tipo2
+            binding.tipos2.text = equipo.listaPokemon[1].tipo1 + equipo.listaPokemon[1].tipo2
+            binding.tipos3.text = equipo.listaPokemon[2].tipo1 + equipo.listaPokemon[2].tipo2
+            binding.tipos4.text = equipo.listaPokemon[3].tipo1 + equipo.listaPokemon[3].tipo2
+            binding.tipos5.text = equipo.listaPokemon[4].tipo1 + equipo.listaPokemon[4].tipo2
+            binding.tipos6.text = equipo.listaPokemon[5].tipo1 + equipo.listaPokemon[5].tipo2
+
+            binding.hab1.text = equipo.listaPokemon[0].habilidad
+            binding.hab2.text = equipo.listaPokemon[1].habilidad
+            binding.hab3.text = equipo.listaPokemon[2].habilidad
+            binding.hab4.text = equipo.listaPokemon[3].habilidad
+            binding.hab5.text = equipo.listaPokemon[4].habilidad
+            binding.hab6.text = equipo.listaPokemon[5].habilidad
+        }
+
+
         return binding.root
     }
 
