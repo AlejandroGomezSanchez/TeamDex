@@ -8,12 +8,14 @@ data class Equipo(
     val listaPokemon: MutableList<Pokemon>,
     var fav: Boolean = false,
     val autor: String?,
-    val nombre: String?
+    val nombre: String?,
+    var anotacion:String?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.createIntArray(),
         TODO("listaPokemon"),
         parcel.readByte() != 0.toByte(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString()
     ) {
@@ -24,6 +26,7 @@ data class Equipo(
         parcel.writeByte(if (fav) 1 else 0)
         parcel.writeString(autor)
         parcel.writeString(nombre)
+        parcel.writeString(anotacion)
     }
 
     override fun describeContents(): Int {

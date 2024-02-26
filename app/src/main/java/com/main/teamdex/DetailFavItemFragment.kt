@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.main.teamdex.databinding.FragmentDetailFavItemBinding
 import com.main.teamdex.databinding.FragmentDetailItemBinding
+import com.squareup.picasso.Picasso
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,6 +40,22 @@ class DetailFavItemFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentDetailFavItemBinding.inflate(inflater, container, false)
+
+        val equipo = arguments?.getParcelable<Equipo>("equipo")
+
+        if (equipo != null) {
+
+
+            binding.nombreE.text = equipo.nombre
+            binding.textInputEditText3.setText(equipo.anotacion)
+
+            binding.button2.setOnClickListener{
+                equipo.anotacion=binding.textInputEditText3.text.toString()
+            }
+        }
+
+
+
         return binding.root
     }
 
