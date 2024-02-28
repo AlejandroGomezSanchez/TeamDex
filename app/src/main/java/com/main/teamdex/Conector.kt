@@ -15,9 +15,9 @@ class Conector {
         val BASE_URL = "https://pokeapi.co/api/v2/"
         val PATH_POKEMON = "/pokemon/"
 
-        fun getPokemon(callback: (Pokemon) -> Unit, id : Int) {
-            var url = BASE_URL + PATH_POKEMON + id
-            var request = Request.Builder().url(url).get().build()
+        fun getPokemon(callback: (Pokemon) -> Unit, id : Int, lan :String) {
+            val url = BASE_URL + PATH_POKEMON + id
+            val request = Request.Builder().url(url).get().build()
 
             OkHttpClient().newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
@@ -25,20 +25,20 @@ class Conector {
                 }
 
                 override fun onResponse(call: Call, response: Response) {
-                    var json = JsonParser.parseString(response.body?.string()).asJsonObject
+                    val json = JsonParser.parseString(response.body?.string()).asJsonObject
 
                     val tipos = json.get("types").asJsonArray.size()
                     var tipo2 = ""
                     val tipo1 =
                         json.get("types").asJsonArray.get(0).asJsonObject.get("type").asJsonObject.get("name").asString
 
-                    if (tipos > 1) {
-                        tipo2 = " / "+
+                    tipo2 = if (tipos > 1) {
+                        " / "+
                                 json.get("types").asJsonArray.get(1).asJsonObject.get("type").asJsonObject.get(
                                     "name"
                                 ).asString
                     } else {
-                        tipo2 = "";
+                        "";
                     }
 
                     val name = json.get("name").asString
@@ -46,23 +46,27 @@ class Conector {
                     val sprite = json.get("sprites").asJsonObject.get("front_default").asString
                     val shiny = json.get("sprites").asJsonObject.get("front_shiny").asString
 
-                    var url =
+                    val url =
                         json.get("abilities").asJsonArray.get(0).asJsonObject.get("ability").asJsonObject.get(
                             "url"
                         ).asString
-                    var request2 = Request.Builder().url(url).get().build()
-                    var response2 = OkHttpClient().newCall(request2).execute()
+                    val request2 = Request.Builder().url(url).get().build()
+                    val response2 = OkHttpClient().newCall(request2).execute()
 
                     val json2 = JsonParser.parseString(
                         (response2.body?.string() ?: ResponseBody).toString()
                     ).asJsonObject
 
                     var x: Int = 0
+
+
+
+
                     for (i in 0..<json2.get("names").asJsonArray.size()) {
 
                         if (json2.get("names").asJsonArray[i].asJsonObject.get("language").asJsonObject.get(
                                 "name"
-                            ).asString == "es"
+                            ).asString == lan
                         ) {
                             x = i
                             break

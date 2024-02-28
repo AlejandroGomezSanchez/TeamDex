@@ -12,68 +12,68 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:text="nombre"
-        android:textSize="40dp"
+        android:layout_marginTop="15dp"
+        android:text=""
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/poke1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreE"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/poke2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poke1"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/poke3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poke2"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/poke4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poke3"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/poke5"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poke4"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/poke6"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poke5"
         tools:src="@tools:sample/avatars" />
@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:text="nombre"
+        android:text=""
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/poke1"
         app:layout_constraintTop_toTopOf="@+id/poke1" />
@@ -93,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:text="nombre"
+        android:text=""
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/poke2"
         app:layout_constraintTop_toTopOf="@+id/poke2" />
@@ -103,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:text="nombre"
+        android:text=""
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/poke3"
         app:layout_constraintTop_toTopOf="@+id/poke3" />
@@ -113,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:text="nombre"
+        android:text=""
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/poke4"
         app:layout_constraintTop_toTopOf="@+id/poke4" />
@@ -123,7 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:text="nombre"
+        android:text=""
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/poke5"
         app:layout_constraintTop_toTopOf="@+id/poke5" />
@@ -133,7 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:text="nombre"
+        android:text=""
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/poke6"
         app:layout_constraintTop_toTopOf="@+id/poke6" />
@@ -143,7 +143,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="tipos"
+        android:text=""
         app:layout_constraintStart_toStartOf="@+id/nom1"
         app:layout_constraintTop_toBottomOf="@+id/nom1" />
 
@@ -152,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="tipos"
+        android:text=""
         app:layout_constraintStart_toStartOf="@+id/nom2"
         app:layout_constraintTop_toBottomOf="@+id/nom2" />
 
@@ -161,7 +161,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="tipos"
+        android:text=""
         app:layout_constraintStart_toStartOf="@+id/nom3"
         app:layout_constraintTop_toBottomOf="@+id/nom3" />
 
@@ -170,7 +170,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="tipos"
+        android:text=""
         app:layout_constraintStart_toStartOf="@+id/nom4"
         app:layout_constraintTop_toBottomOf="@+id/nom4" />
 
@@ -179,7 +179,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="tipos"
+        android:text=""
         app:layout_constraintStart_toStartOf="@+id/nom5"
         app:layout_constraintTop_toBottomOf="@+id/nom5" />
 
@@ -188,7 +188,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="tipos"
+        android:text=""
         app:layout_constraintStart_toStartOf="@+id/nom6"
         app:layout_constraintTop_toBottomOf="@+id/nom6" />
 
@@ -196,7 +196,7 @@
         android:id="@+id/hab1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="habilidad"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/poke1"
         app:layout_constraintStart_toStartOf="@+id/tipos1" />
 
@@ -204,7 +204,7 @@
         android:id="@+id/hab2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="habilidad"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/poke2"
         app:layout_constraintStart_toStartOf="@+id/tipos2" />
 
@@ -212,7 +212,7 @@
         android:id="@+id/hab3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="habilidad"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/poke3"
         app:layout_constraintStart_toStartOf="@+id/tipos3" />
 
@@ -220,7 +220,7 @@
         android:id="@+id/hab4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="habilidad"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/poke4"
         app:layout_constraintStart_toStartOf="@+id/tipos4" />
 
@@ -228,14 +228,14 @@
         android:id="@+id/hab5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="habilidad"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/poke5"
         app:layout_constraintStart_toStartOf="@+id/tipos5" />
     <TextView
         android:id="@+id/hab6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="habilidad"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/poke6"
         app:layout_constraintStart_toStartOf="@+id/tipos6" />
 

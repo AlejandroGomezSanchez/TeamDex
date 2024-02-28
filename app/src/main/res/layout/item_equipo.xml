@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/bgcolor">
 
     <androidx.cardview.widget.CardView
         android:layout_width="400dp"
@@ -15,9 +16,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nombre"
+            android:text=""
             android:id="@+id/nombre"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:textStyle="bold"
@@ -29,8 +30,8 @@
             android:layout_gravity="bottom"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
-            android:textSize="16dp"
-            android:text="autor"
+            android:textSize="16sp"
+            android:text=""
             android:id="@+id/autor"/>
 
         <ImageView
@@ -86,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginStart="280dp"
-            android:text="Favorito"
+            android:text="@string/favorito"
             android:id="@+id/fav"
             />
     </androidx.cardview.widget.CardView>
