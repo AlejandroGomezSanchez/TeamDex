@@ -78,7 +78,7 @@ class DetailItemFragment : Fragment() {
                     4 -> binding.tipos5
                     5 -> binding.tipos6
                     else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
-                }.text = "Tipos: "+pokemon.tipo1 + pokemon.tipo2
+                }.text = getString(R.string.tipos)+pokemon.tipo1 + pokemon.tipo2
 
                 when (i) {
                     0 -> binding.hab1
@@ -88,13 +88,12 @@ class DetailItemFragment : Fragment() {
                     4 -> binding.hab5
                     5 -> binding.hab6
                     else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
-                }.text ="Habilidad: "+ pokemon.habilidad
+                }.text = getString(R.string.habilidad)+ pokemon.habilidad
             }
 
             binding.nombreE.text = equipo.nombre
 
         }
-
 
         return binding.root
     }

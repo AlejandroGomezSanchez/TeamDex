@@ -20,9 +20,9 @@ class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         binding.autor.text = equipoModel.autor
 
         if(equipoModel.fav){
-            binding.fav.text= "Quitar Favorito"
+            binding.fav.text= itemView.context.getString(R.string.quitar_favorito)
         }else{
-            binding.fav.text= "Favorito"
+            binding.fav.text= itemView.context.getString(R.string.favorito)
         }
 
         Picasso.get()
@@ -45,10 +45,10 @@ class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .into(binding.pk6)
         binding.fav.setOnClickListener {
             if (equipoModel.fav){
-                binding.fav.text = "Favorito"
+                binding.fav.text = itemView.context.getString(R.string.favorito)
                 equipoModel.fav = false
             }else{
-                binding.fav.text = "Quitar Favorito"
+                binding.fav.text = itemView.context.getString(R.string.quitar_favorito)
                 equipoModel.fav = true
             }
         }
@@ -57,9 +57,9 @@ class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         itemView.setOnClickListener {
             try {
-                nav.navigate(R.id.action_itemListFragment_to_detailItemFragment,bundle)
+                nav.navigate(R.id.action_itemListFragment2_to_detailItemFragment2,bundle)
             }catch (exe : Exception){
-                nav.navigate(R.id.action_favItemListFragment_to_detailFavItemFragment,bundle)
+                nav.navigate(R.id.action_favItemListFragment2_to_detailFavItemFragment2,bundle)
             }
 
         }

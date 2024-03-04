@@ -40,7 +40,7 @@ class UserInfoFragment : Fragment() {
     ): View? {
         _binding = FragmentUserInfoBinding.inflate(inflater, container, false)
 
-        binding.user.text = "Usuario: "+ LoginFragment.usuario
+        binding.user.text = getString(R.string.usuario2) + LoginFragment.usuario
 
 
         return binding.root

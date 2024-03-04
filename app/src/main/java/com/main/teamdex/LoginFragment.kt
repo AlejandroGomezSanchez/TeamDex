@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.main.teamdex.databinding.FragmentLoginBinding
 
@@ -44,7 +45,12 @@ class LoginFragment : Fragment() {
 
         binding.button.setOnClickListener{
             usuario = binding.textInputEditText.text.toString()
-            findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
+
+            val actividadPadre = requireActivity() as MainActivity
+
+            actividadPadre.activaNav()
+
+            findNavController().navigate(R.id.action_loginFragment2_to_itemListFragment2)
         }
         return binding.root
     }

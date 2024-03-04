@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginTop="64dp"
-        android:text="Usuario:"
-        android:textSize="30dp"
+        android:text="@string/usuario2"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">TeamDex</string>
+    <string name="bienvenida">Welcome</string>
+    <string name="continueB">Continue</string>
+    <string name="version">you are using version 2.0 of TeamDex</string>
+    <string name="desc">TeamDex es una red social en la que los usuarios pueden subir sus equipos pokemon ya sean competitivos y por diversión para que otros usuarios los vean o puedan usarlos en sus partidas</string>
+    <string name="contact">Contact Us</string>
+    <string name="label_usr">Please introduce your user name</string>
+    <string name="usr">User</string>
+    <string name="lista">List</string>
+    <string name="favoritos">Favorites</string>
+    <string name="anotaciones">Annotations</string>
+    <string name="guardar">Save</string>
+    <string name="creditos">Credits</string>
+    <string name="salir">Exit</string>
+    <string name="usuario2">User:</string>
+    <string name="favorito">Favorite</string>
+    <string name="quitar_favorito">Remove Favorite</string>
+    <string name="tipos">"Types: "</string>
+    <string name="habilidad">"Ability: "</string>
+    <string name="listaM">List</string>
+    <string name="favoritosM">Favorites</string>
+    <string name="usuarioM">User</string>
+
+
+</resources>

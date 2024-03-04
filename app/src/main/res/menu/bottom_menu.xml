@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@id/list_nav_graph"
+        android:title="@string/listaM"
+        android:icon="@drawable/lupa"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@id/favorites_nav_graph"
+        android:icon="@drawable/estrella"
+        android:title="@string/favoritosM"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@id/settings_nav_graph"
+        android:icon="@drawable/userpng"
+        android:title="@string/usuarioM"
+        app:showAsAction="ifRoom" />
+</menu>

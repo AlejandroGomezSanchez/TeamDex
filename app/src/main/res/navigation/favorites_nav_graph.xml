@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/favorites_nav_graph"
+    app:startDestination="@id/favItemListFragment2">
+
+    <fragment
+        android:id="@+id/favItemListFragment2"
+        android:name="com.main.teamdex.FavItemListFragment"
+        android:label="FavItemListFragment" >
+        <action
+            android:id="@+id/action_favItemListFragment2_to_detailFavItemFragment2"
+            app:destination="@id/detailFavItemFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFavItemFragment2"
+        android:name="com.main.teamdex.DetailFavItemFragment"
+        android:label="fragment_detail_fav_item"
+        tools:layout="@layout/fragment_detail_fav_item" />
+</navigation>
