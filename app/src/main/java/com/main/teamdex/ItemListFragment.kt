@@ -45,7 +45,7 @@ class ItemListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentItemListBinding.inflate(inflater, container, false)
-        adapter = EquipoAdapter(EquipoProvider.listaEquipo,findNavController())
+        adapter = context?.let { EquipoAdapter(EquipoProvider.listaEquipo,findNavController(), it) }!!
         binding.EquipoList.adapter = adapter
         layoutManager = LinearLayoutManager(requireContext())
         binding.EquipoList.layoutManager = layoutManager

@@ -1,11 +1,13 @@
 package com.main.teamdex
 
+import android.content.Context
+
 class EquipoProvider {
     companion object{
         var listaEquipo = mutableListOf(
-            Equipo(intArrayOf(3,14,74,308,151,43), mutableListOf<Pokemon>(),false,"Joaquin Dominguez", "Equipazo",""),
-            Equipo(intArrayOf(6,18,88,31,130,61),mutableListOf<Pokemon>(),false,"Pepe Botella", "MiEquipo",""),
-            Equipo(intArrayOf(9,11,63,45,120,150),mutableListOf<Pokemon>(),false,"Paco Perez", "MejorEquipo","")
+            Equipo(1,intArrayOf(3,14,74,308,151,43), mutableListOf<Pokemon>(),"Joaquin Dominguez", "Equipazo",""),
+            Equipo(2,intArrayOf(6,18,88,31,130,61),mutableListOf<Pokemon>(),"Pepe Botella", "MiEquipo",""),
+            Equipo(3,intArrayOf(9,11,63,45,120,150),mutableListOf<Pokemon>(),"Paco Perez", "MejorEquipo","")
         )
 
         var listaFavEquipo = mutableListOf<Equipo>()
@@ -23,20 +25,24 @@ class EquipoProvider {
             }
         }
 
-        public fun rellenaListaFav(){
+        public fun rellenaListaFav(cont:Context){
             listaFavEquipo.clear()
-            listaEquipo.forEach {
-                if(it.fav){
-                    listaFavEquipo.add(it)
+
+            val data = LocalDatabase.getDatabase(cont)
+            val favDAO = data.favoritosDao()
+
+            val listaFavId = favDAO.getAllFav()
+
+            listaFavId?.forEach { it1 ->
+                var id = it1.id
+                listaEquipo.forEach {
+                    if(it.id==id){
+                        listaFavEquipo.add(it)
+                    }
                 }
             }
-        }
 
-        public fun resetFav(){
-            listaEquipo.forEach {
-                it.fav=false;
-                it.anotacion=""
-            }
+
         }
     }
 }

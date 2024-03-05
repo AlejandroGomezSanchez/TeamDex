@@ -45,8 +45,12 @@ class FavItemListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFavItemListBinding.inflate(inflater, container, false)
-        EquipoProvider.rellenaListaFav()
-        adapter = EquipoAdapter(EquipoProvider.listaFavEquipo,findNavController())
+        this.context?.let { EquipoProvider.rellenaListaFav(it) }
+        adapter = context?.let {
+            EquipoAdapter(EquipoProvider.listaFavEquipo,findNavController(),
+                it
+            )
+        }!!
         binding.FavEquipoList.adapter = adapter
         layoutManager = LinearLayoutManager(requireContext())
         binding.FavEquipoList.layoutManager = layoutManager

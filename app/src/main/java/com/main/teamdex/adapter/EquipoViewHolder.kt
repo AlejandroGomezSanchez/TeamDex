@@ -1,5 +1,6 @@
 package com.main.teamdex.adapter
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -7,6 +8,8 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.main.teamdex.Equipo
+import com.main.teamdex.FavoritosEntity
+import com.main.teamdex.LocalDatabase
 import com.main.teamdex.R
 import com.main.teamdex.databinding.ItemEquipoBinding
 import com.squareup.picasso.Picasso
@@ -15,11 +18,23 @@ import java.lang.Exception
 class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val binding = ItemEquipoBinding.bind(itemView)
 
-    fun bind(equipoModel: Equipo, nav: NavController){
+    fun bind(equipoModel: Equipo, nav: NavController, cont: Context){
         binding.nombre.text = equipoModel.nombre
         binding.autor.text = equipoModel.autor
 
-        if(equipoModel.fav){
+        val data = LocalDatabase.getDatabase(cont)
+        val favDAO = data.favoritosDao()
+
+        var fav = false
+        favDAO.getAllFav()?.forEach {
+            if (it.id==equipoModel.id){
+                fav=true
+            }
+        }
+
+
+
+        if(fav){
             binding.fav.text= itemView.context.getString(R.string.quitar_favorito)
         }else{
             binding.fav.text= itemView.context.getString(R.string.favorito)
@@ -44,12 +59,12 @@ class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .load(equipoModel.listaPokemon[5].sprite)
             .into(binding.pk6)
         binding.fav.setOnClickListener {
-            if (equipoModel.fav){
+            if (fav){
                 binding.fav.text = itemView.context.getString(R.string.favorito)
-                equipoModel.fav = false
+                favDAO.deleteFavorito(FavoritosEntity(equipoModel.id))
             }else{
                 binding.fav.text = itemView.context.getString(R.string.quitar_favorito)
-                equipoModel.fav = true
+                favDAO.insertFavorito(FavoritosEntity(equipoModel.id))
             }
         }
         val bundle : Bundle = Bundle()
@@ -61,7 +76,6 @@ class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             }catch (exe : Exception){
                 nav.navigate(R.id.action_favItemListFragment2_to_detailFavItemFragment2,bundle)
             }
-//pepe
         }
 
     }

@@ -4,17 +4,19 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Equipo(
+    val id : Int,
     val listaId: IntArray?,
     val listaPokemon: MutableList<Pokemon>,
-    var fav: Boolean = false,
+
     val autor: String?,
     val nombre: String?,
     var anotacion:String?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readInt(),
         parcel.createIntArray(),
         TODO("listaPokemon"),
-        parcel.readByte() != 0.toByte(),
+
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
@@ -22,8 +24,9 @@ data class Equipo(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id)
         parcel.writeIntArray(listaId)
-        parcel.writeByte(if (fav) 1 else 0)
+
         parcel.writeString(autor)
         parcel.writeString(nombre)
         parcel.writeString(anotacion)
