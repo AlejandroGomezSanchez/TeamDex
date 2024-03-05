@@ -78,7 +78,6 @@ class Conector {
 
                     val ability = json2.get("names").asJsonArray.get(x).asJsonObject.get("name").asString
 
-
                     val pokemon = Pokemon(id, name, tipo1, tipo2, ability, sprite,shiny)
 
                     callback(pokemon)

@@ -28,9 +28,6 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
 
-
-
-
 //incluye un controlador de navegacion. fragmentcontainerView2 es el host de navegación.
         val navFragment = supportFragmentManager.findFragmentById(R.id.fcwMain) as NavHostFragment
         val navController = navFragment.navController
@@ -40,14 +37,12 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupActionBarWithNavController(this,navController)
 
-
         binding.bottomNavigationView
             .setupWithNavController(navController)
 
         binding.bottomNavigationView.visibility = INVISIBLE
 
         setContentView(view)
-
 
     }
 
