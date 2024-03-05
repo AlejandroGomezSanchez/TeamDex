@@ -61,7 +61,7 @@ class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             }catch (exe : Exception){
                 nav.navigate(R.id.action_favItemListFragment2_to_detailFavItemFragment2,bundle)
             }
-
+//pepe
         }
 
     }
