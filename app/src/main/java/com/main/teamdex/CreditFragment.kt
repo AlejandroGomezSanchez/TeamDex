@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.main.teamdex.databinding.FragmentCreditBinding
-import com.main.teamdex.databinding.FragmentLoginBinding
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,7 +43,7 @@ class CreditFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentCreditBinding.inflate(inflater, container, false)
 
-        binding.textView3.text = LoginFragment.usuario + " " + getString(R.string.version)
+
 
         binding.btCont.setOnClickListener{
             val intent = Intent(Intent.ACTION_SENDTO);

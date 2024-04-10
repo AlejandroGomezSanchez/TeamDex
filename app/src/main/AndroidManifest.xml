@@ -15,7 +15,10 @@
         android:theme="@style/Theme.TeamDex"
         tools:targetApi="34">
         <activity
-            android:name=".SplashActivity"
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +27,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".SplashActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

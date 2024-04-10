@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list_nav_graph"
-    app:startDestination="@id/loginFragment2">
+    app:startDestination="@id/itemListFragment2">
 
     <fragment
         android:id="@+id/itemListFragment2"
@@ -19,15 +19,4 @@
         android:name="com.main.teamdex.DetailItemFragment"
         android:label="fragment_detail_item"
         tools:layout="@layout/fragment_detail_item" />
-    <fragment
-        android:id="@+id/loginFragment2"
-        android:name="com.main.teamdex.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment2_to_itemListFragment2"
-            app:destination="@id/itemListFragment2"
-            app:popUpTo="@id/itemListFragment2"
-            app:popUpToInclusive="false" />
-    </fragment>
 </navigation>

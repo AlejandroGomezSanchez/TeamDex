@@ -44,8 +44,6 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView
             .setupWithNavController(navController)
 
-        binding.bottomNavigationView.visibility = INVISIBLE
-
         setContentView(view)
 
 
@@ -55,9 +53,4 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.fcwMain)
         return navController.navigateUp()
     }
-
-    public fun activaNav(){
-        binding.bottomNavigationView.visibility = VISIBLE
-    }
-
 }
