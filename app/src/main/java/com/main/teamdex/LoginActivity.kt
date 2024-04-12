@@ -36,6 +36,10 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
+
+        binding.button5.setOnClickListener{
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
         setContentView(view)
 
     }

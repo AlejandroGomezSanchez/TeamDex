@@ -29,11 +29,27 @@ class ConectorDB {
             return connection
         }
 
-        fun añadeUsuario(conex: Connection, usu: String, cont: String) {
-            val sql = "INSERT INTO usuarios(nombre, cont) VALUES($usu, $cont)"
-            val statement = conex.createStatement()
-            statement.execute(sql)
+        fun añadeUsuario(conex: Connection?, usu: String, cont: String):Boolean {
+
+            var resul = true
+            val thread = Thread {
+                val sql = "INSERT INTO usuarios(nombre, contrasena) VALUES(?, ?)"
+                try {
+                    val preparedStatement = conex?.prepareStatement(sql)
+                    preparedStatement?.setString(1, usu)
+                    preparedStatement?.setString(2, cont)
+                    preparedStatement?.executeUpdate()
+                } catch (e: SQLException) {
+                    e.printStackTrace()
+                    resul = false
+                    // Aquí puedes manejar la excepción de otra manera si lo prefieres
+                }
+            }
+            thread.start()
+            thread.join() // Espera a que el hilo termine antes de continuar
+            return resul
         }
+
 
         fun login(conex: Connection?, usu: String, cont: String): Int {
             var id = 0
