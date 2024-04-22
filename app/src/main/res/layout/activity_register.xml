@@ -76,7 +76,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:text="Volver"
         app:layout_constraintStart_toStartOf="@+id/textInputEditText2"
         app:layout_constraintTop_toBottomOf="@+id/textInputEditText2" />
@@ -85,9 +85,23 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:text="Aceptar"
         app:layout_constraintEnd_toEndOf="@+id/textInputEditText2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText2" />
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text=""
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:textColor="@color/design_default_color_error"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputEditText2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,11 @@
 package com.main.teamdex
 
 import android.content.Intent
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import com.main.teamdex.databinding.ActivityLoginBinding
 import com.main.teamdex.databinding.ActivityRegisterBinding
 
@@ -30,11 +33,17 @@ class RegisterActivity : AppCompatActivity() {
 
                 if(comp){
                     startActivity(Intent(this, LoginActivity::class.java))
+                }else{
+                    println("ErrorRegistro")
+                    binding.error.text="Nombre no disponible"
+                    binding.error.visibility= View.VISIBLE
                 }
                 conex?.close()
 
             }catch (e:Exception){
+                println("CatchRegistro")
                 conex?.close();
+
             }
         }
 

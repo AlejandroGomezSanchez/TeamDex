@@ -1,5 +1,6 @@
 package com.main.teamdex
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.main.teamdex.databinding.FragmentDetailItemBinding
 import com.main.teamdex.databinding.FragmentUserInfoBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,8 +44,14 @@ class UserInfoFragment : Fragment() {
     ): View? {
         _binding = FragmentUserInfoBinding.inflate(inflater, container, false)
 
-        binding.user.text = getString(R.string.usuario2) + LoginActivity.usuario
+        binding.user.text = getString(R.string.usuario2) + LoginActivity.usuarioId
 
+        binding.cerrarSesion.setOnClickListener{
+            CoroutineScope(Dispatchers.IO).launch {
+                this@UserInfoFragment.context?.let { it1 -> LoginActivity.borrarUsuario(it1) }
+                startActivity(Intent(this@UserInfoFragment.context,LoginActivity::class.java))
+            }
+        }
 
         return binding.root
     }

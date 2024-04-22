@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.datastore:datastore-preferences:1.1.0")
     implementation ("mysql:mysql-connector-java:5.1.49")
     implementation ("androidx.viewpager2:viewpager2:1.1.0-alpha01")
     implementation("androidx.core:core-ktx:1.9.0")

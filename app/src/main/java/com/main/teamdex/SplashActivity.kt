@@ -9,8 +9,8 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        EquipoProvider.rellenaLista(resources.configuration.locale.language)
+        Thread.sleep(5000)
         startActivity(Intent(this,LoginActivity::class.java))
-
-        Thread.sleep(10000)
     }
 }
