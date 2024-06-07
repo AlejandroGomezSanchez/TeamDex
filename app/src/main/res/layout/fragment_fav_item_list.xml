@@ -6,12 +6,390 @@
     android:layout_height="match_parent"
     tools:context=".ItemListFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/FavEquipoList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <!-- Texto en la parte superior -->
+    <TextView
+        android:id="@+id/text_nuevo_equipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre: "
+        android:textSize="22sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+         />
 
+    <!-- Primer CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/text_nuevo_equipo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <Button
+            android:id="@+id/crear1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nuevo_pokemon"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="25dp" />
+
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/img1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="invisible"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/nom1"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nombre1"
+            />
+
+        <TextView
+            android:id="@+id/hab1"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="habilidad1" />
+
+        <TextView
+            android:id="@+id/obj1"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="objeto1" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Segundo CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/card1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <Button
+            android:id="@+id/crear2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nuevo_pokemon"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="25dp"/>
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/img2"
+            android:visibility="invisible"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            tools:src="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/nom2"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nombre2" />
+        <TextView
+            android:id="@+id/hab2"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="habilidad2" />
+
+        <TextView
+            android:id="@+id/obj2"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="objeto2" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tercer CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card3"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/card2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <Button
+            android:id="@+id/crear3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nuevo_pokemon"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="25dp" />
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/img3"
+            android:visibility="invisible"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            tools:src="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/nom3"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nombre3" />
+        <TextView
+            android:id="@+id/hab3"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="habilidad3" />
+
+        <TextView
+            android:id="@+id/obj3"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="objeto3" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Cuarto CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card4"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/card3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <Button
+            android:id="@+id/crear4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nuevo_pokemon"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="25dp" />
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/img4"
+            android:layout_width="80dp"
+            android:visibility="invisible"
+            android:layout_height="80dp"
+            tools:src="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/nom4"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:layout_marginStart="100dp"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nombre4" />
+        <TextView
+            android:id="@+id/hab4"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:text="habilidad4" />
+
+        <TextView
+            android:id="@+id/obj4"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="objeto4" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Quinto CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card5"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/card4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <Button
+            android:id="@+id/crear5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nuevo_pokemon"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="25dp" />
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/img5"
+            android:visibility="invisible"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            tools:src="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/nom5"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nombre5" />
+        <TextView
+            android:id="@+id/hab5"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="habilidad5" />
+
+        <TextView
+            android:id="@+id/obj5"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="objeto5" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Sexto CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card6"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@id/card5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+ >
+
+        <Button
+            android:id="@+id/crear6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nuevo_pokemon"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="25dp" />
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/img6"
+            android:visibility="invisible"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            tools:src="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/nom6"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nombre6" />
+
+        <TextView
+            android:id="@+id/hab6"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="habilidad6" />
+
+        <TextView
+            android:id="@+id/obj6"
+            android:layout_marginTop="60dp"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            android:layout_marginStart="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="objeto6" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/borrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Borrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card6" />
+
+    <Button
+        android:id="@+id/publicar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Publicar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card6" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nombreE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del equipo"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

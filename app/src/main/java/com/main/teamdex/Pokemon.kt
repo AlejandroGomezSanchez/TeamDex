@@ -1,11 +1,12 @@
 package com.main.teamdex
 
+import android.os.Parcel
+import android.os.Parcelable
+
 data class Pokemon (
     val id : Int,
-    val nombre : String,
-    val tipo1 : String,
-    val tipo2 : String,
+    val num : Int,
     val habilidad : String,
-    val sprite : String,
-    val shiny : String
+    val item : String,
+    val shiny : Int
 )

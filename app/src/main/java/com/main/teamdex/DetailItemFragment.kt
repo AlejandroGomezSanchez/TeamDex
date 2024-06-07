@@ -1,5 +1,6 @@
 package com.main.teamdex
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,11 @@ import android.view.ViewGroup
 import com.main.teamdex.databinding.FragmentCreditBinding
 import com.main.teamdex.databinding.FragmentDetailItemBinding
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.time.InstantSource
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,60 +48,88 @@ class DetailItemFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentDetailItemBinding.inflate(inflater, container, false)
 
-        val equipo = arguments?.getParcelable<Equipo>("equipo")
+        val id = arguments?.getInt("equipo")
+        var equipo: Equipo = Equipo(0, mutableListOf(), 0, "", "")
 
-        if (equipo != null) {
-            for (i in 0 until minOf(6, equipo.listaPokemon.size)) {
-                val pokemon = equipo.listaPokemon[i]
-
-                Picasso.get()
-                    .load(pokemon.sprite)
-                    .into(when (i) {
-                        0 -> binding.poke1
-                        1 -> binding.poke2
-                        2 -> binding.poke3
-                        3 -> binding.poke4
-                        4 -> binding.poke5
-                        5 -> binding.poke6
-                        else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
-                    })
-
-                when (i) {
-                    0 -> binding.nom1
-                    1 -> binding.nom2
-                    2 -> binding.nom3
-                    3 -> binding.nom4
-                    4 -> binding.nom5
-                    5 -> binding.nom6
-                    else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
-                }.text = pokemon.nombre.replaceFirst(pokemon.nombre[0],pokemon.nombre[0].uppercaseChar())
-
-                when (i) {
-                    0 -> binding.tipos1
-                    1 -> binding.tipos2
-                    2 -> binding.tipos3
-                    3 -> binding.tipos4
-                    4 -> binding.tipos5
-                    5 -> binding.tipos6
-                    else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
-                }.text = getString(R.string.tipos)+pokemon.tipo1 + pokemon.tipo2
-
-                when (i) {
-                    0 -> binding.hab1
-                    1 -> binding.hab2
-                    2 -> binding.hab3
-                    3 -> binding.hab4
-                    4 -> binding.hab5
-                    5 -> binding.hab6
-                    else -> throw IndexOutOfBoundsException("Index $i is out of bounds for equipo.listaPokemon")
-                }.text = getString(R.string.habilidad)+ pokemon.habilidad
+        CoroutineScope(Dispatchers.IO).launch {
+            println("hilo")
+            if (id != null) {
+                equipo = ConectorDB.getTeam( id)
+                loadSprites(equipo)
+            } else {
+                println("juan")
             }
 
-            binding.nombreE.text = equipo.nombre
+            withContext(Dispatchers.Main) {
+                binding.nombreE.text = equipo.nombre
+            }
 
+            for (i in 0 until minOf(6, equipo.listaPokemon.size)) {
+                val pokemon = equipo.listaPokemon[i]
+                println(pokemon.habilidad)
+
+                val nombre = ConectorAPI.getNombre(pokemon.num)
+                val tipos = ConectorAPI.getTipos(pokemon.num)
+
+                withContext(Dispatchers.Main) {
+                    when (i) {
+                        0 -> {
+                            binding.nom1.text = nombre.replaceFirstChar { it.uppercaseChar() }
+                            binding.tipos1.text = getString(R.string.tipos) + tipos
+                            binding.hab1.text = getString(R.string.habilidad) + pokemon.habilidad
+                        }
+                        1 -> {
+                            binding.nom2.text = nombre.replaceFirstChar { it.uppercaseChar() }
+                            binding.tipos2.text = getString(R.string.tipos) + tipos
+                            binding.hab2.text = getString(R.string.habilidad) + pokemon.habilidad
+                        }
+                        2 -> {
+                            binding.nom3.text = nombre.replaceFirstChar { it.uppercaseChar() }
+                            binding.tipos3.text = getString(R.string.tipos) + tipos
+                            binding.hab3.text = getString(R.string.habilidad) + pokemon.habilidad
+                        }
+                        3 -> {
+                            binding.nom4.text = nombre.replaceFirstChar { it.uppercaseChar() }
+                            binding.tipos4.text = getString(R.string.tipos) + tipos
+                            binding.hab4.text = getString(R.string.habilidad) + pokemon.habilidad
+                        }
+                        4 -> {
+                            binding.nom5.text = nombre.replaceFirstChar { it.uppercaseChar() }
+                            binding.tipos5.text = getString(R.string.tipos) + tipos
+                            binding.hab5.text = getString(R.string.habilidad) + pokemon.habilidad
+                        }
+                        5 -> {
+                            binding.nom6.text = nombre.replaceFirstChar { it.uppercaseChar() }
+                            binding.tipos6.text = getString(R.string.tipos) + tipos
+                            binding.hab6.text = getString(R.string.habilidad) + pokemon.habilidad
+                        }
+                    }
+                }
+            }
         }
 
         return binding.root
+    }
+
+    private suspend fun loadSprites(equipoModel: Equipo) {
+        val listaSprites = mutableListOf<String>()
+
+        // Descargar los sprites en un coroutine en el contexto IO
+        withContext(Dispatchers.IO) {
+            for (i in 1..6) {
+                listaSprites.add(ConectorAPI.getSprite(equipoModel.listaPokemon[i-1].num,equipoModel.listaPokemon[i-1].shiny))
+            }
+        }
+
+        // Cargar las imágenes en los ImageView después de que todos los sprites se hayan descargado
+        withContext(Dispatchers.Main) {
+            Picasso.get().load(listaSprites[0]).into(binding.poke1)
+            Picasso.get().load(listaSprites[1]).into(binding.poke2)
+            Picasso.get().load(listaSprites[2]).into(binding.poke3)
+            Picasso.get().load(listaSprites[3]).into(binding.poke4)
+            Picasso.get().load(listaSprites[4]).into(binding.poke5)
+            Picasso.get().load(listaSprites[5]).into(binding.poke6)
+        }
     }
 
     companion object {

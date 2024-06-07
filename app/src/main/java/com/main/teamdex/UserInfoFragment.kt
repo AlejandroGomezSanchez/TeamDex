@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.main.teamdex.databinding.FragmentDetailItemBinding
 import com.main.teamdex.databinding.FragmentUserInfoBinding
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,7 +46,9 @@ class UserInfoFragment : Fragment() {
     ): View? {
         _binding = FragmentUserInfoBinding.inflate(inflater, container, false)
 
-        binding.user.text = getString(R.string.usuario2) + LoginActivity.usuarioId
+        CoroutineScope(Dispatchers.Main).launch {
+            setUsu()
+        }
 
         binding.cerrarSesion.setOnClickListener{
             CoroutineScope(Dispatchers.IO).launch {
@@ -54,6 +58,19 @@ class UserInfoFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    suspend fun setUsu(){
+        val nombre: String
+
+        withContext(Dispatchers.IO) {
+            nombre = ConectorDB.getNombreUsu(LoginActivity.usuarioId)
+        }
+
+        // Cargar las imágenes en los ImageView después de que todos los sprites se hayan descargado
+        withContext(Dispatchers.Main) {
+            binding.user.text = getString(R.string.usuario2) + " " + nombre
+        }
     }
 
     companion object {

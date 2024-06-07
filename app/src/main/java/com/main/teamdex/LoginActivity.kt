@@ -33,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
     private lateinit var dataStore: DataStore<Preferences>
     private var _binding: ActivityLoginBinding? = null
     private val binding
@@ -50,7 +49,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-
         _binding = ActivityLoginBinding.inflate(layoutInflater)
         val view = binding.root
 
@@ -59,9 +57,8 @@ class LoginActivity : AppCompatActivity() {
         dataStore = applicationContext.dataStore
 
         binding.button.setOnClickListener {
-            val conex = ConectorDB.connectToDatabase()
-            usuarioId = ConectorDB.login(conex, binding.textInputEditText.text.toString(), binding.textInputEditText2.text.toString())
-            conex?.close()
+
+            usuarioId = ConectorDB.login(binding.textInputEditText.text.toString(), binding.textInputEditText2.text.toString())
 
             if (usuarioId != 0) {
                 if (binding.checkBox.isChecked) {

@@ -12,10 +12,17 @@
         <action
             android:id="@+id/action_favItemListFragment2_to_detailFavItemFragment2"
             app:destination="@id/detailFavItemFragment2" />
+        <action
+            android:id="@+id/action_favItemListFragment2_self"
+            app:destination="@id/favItemListFragment2" />
     </fragment>
     <fragment
         android:id="@+id/detailFavItemFragment2"
         android:name="com.main.teamdex.DetailFavItemFragment"
         android:label="fragment_detail_fav_item"
-        tools:layout="@layout/fragment_detail_fav_item" />
+        tools:layout="@layout/fragment_detail_fav_item" >
+        <action
+            android:id="@+id/action_detailFavItemFragment2_to_favItemListFragment2"
+            app:destination="@id/favItemListFragment2" />
+    </fragment>
 </navigation>

@@ -19,8 +19,8 @@
     <string name="tipos">"Types: "</string>
     <string name="habilidad">"Ability: "</string>
     <string name="listaM">List</string>
-    <string name="favoritosM">Favorites</string>
+    <string name="favoritosM">New Team</string>
     <string name="usuarioM">User</string>
-
+    <string name="nuevo_pokemon">New Pokemon</string>
 
 </resources>

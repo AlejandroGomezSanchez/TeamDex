@@ -26,10 +26,9 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.button4.setOnClickListener{
-            val conex = ConectorDB.connectToDatabase()
             try{
 
-                val comp = ConectorDB.añadeUsuario(conex, binding.textInputEditText.text.toString(), binding.textInputEditText2.text.toString())
+                val comp = ConectorDB.añadeUsuario(binding.textInputEditText.text.toString(), binding.textInputEditText2.text.toString())
 
                 if(comp){
                     startActivity(Intent(this, LoginActivity::class.java))
@@ -38,11 +37,11 @@ class RegisterActivity : AppCompatActivity() {
                     binding.error.text="Nombre no disponible"
                     binding.error.visibility= View.VISIBLE
                 }
-                conex?.close()
+
 
             }catch (e:Exception){
                 println("CatchRegistro")
-                conex?.close();
+
 
             }
         }

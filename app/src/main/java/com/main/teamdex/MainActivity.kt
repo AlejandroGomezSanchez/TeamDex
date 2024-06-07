@@ -11,7 +11,10 @@ import android.widget.TextView
 import android.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.main.teamdex.databinding.ActivityMainBinding
@@ -38,19 +41,28 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        NavigationUI.setupActionBarWithNavController(this,navController)
+        if (supportActionBar != null) {
+            supportActionBar!!.title = "TeamDex";
+        }
 
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        setupActionBarWithNavController(navController,appBarConfiguration)
+
+        navController.addOnDestinationChangedListener { _, _, _ ->
+            // Mantener el título del Toolbar constante
+            supportActionBar?.title = "TeamDex"
+        }
 
         binding.bottomNavigationView
             .setupWithNavController(navController)
 
         setContentView(view)
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.fcwMain)
         return navController.navigateUp()
     }
+
 }
